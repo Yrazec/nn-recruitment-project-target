@@ -8,6 +8,7 @@ class Emojis:
     HAMMER = '\U0001F528'
     LIGHTNING = '\U000026A1'
     GEAR = '\U00002699'
+    FEATHER = '\U0001FAB6'
 
 
 class Settings:
@@ -47,7 +48,7 @@ class MainGUI:
         self.settings.FREQUENCY_PENALTY = st.sidebar.slider('Frequency penalty', 0.0, 2.0, 0.0)
         self.settings.PRESENCE_PENALTY = st.sidebar.slider('Presence penalty', 0.0, 2.0, 0.0)
 
-        st.sidebar.title('Parameters description')
+        st.sidebar.title(f'{self.emojis.FEATHER} Parameters description {self.emojis.FEATHER}')
 
         st.sidebar.subheader('GPT-3 model')
         st.sidebar.write('The model which will generate the completion. Some models are suitable for natural language tasks, others specialize in code.')
