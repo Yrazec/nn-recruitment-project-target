@@ -8,6 +8,11 @@ class Settings:
     API_KEY = None
     MODEL = 'text-davinci-002'
     PROMPT = ''
+    TEMPERATURE = 0.7
+    MAX_TOKENS = 128
+    TOP_P = 1
+    FREQUENCY_PENALTY = 0
+    PRESENCE_PENALTY = 0
 
 
 def validate_string_start(string: str) -> str:
@@ -22,7 +27,7 @@ def validate_string_start(string: str) -> str:
 def main():
     """Standard main function."""
 
-    st.title('Abstractor')
+    st.title('🔨⚡ AbstracThor \U000026A1\U0001F528')
 
     st.sidebar.title('Settings')
     openai.api_key = st.sidebar.text_input('OpenAI API Key:', type='password')
@@ -32,12 +37,12 @@ def main():
     )
 
     input_text = st.text_area(
-        label='Enter the text to be summarized'
+        label='Enter the text to be summarized:'
     )
 
     if openai.api_key:
         st.subheader('Shorter version of your text:')
-        with st.spinner('Smithing your abstract...'):
+        with st.spinner('Smithing your abstract... ⚡🔨'):
             response = openai.Completion.create(
                 model='text-davinci-002',
                 prompt=f'{input_text}\n\nTl;dr',
