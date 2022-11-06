@@ -104,10 +104,11 @@ class MainGUI:
                     st.write(output)
 
         with description_tab:
+            st.write("OpenAI's GPT-3 models can understand and generate natural language. It offer four main models with different levels of power suitable for different tasks. Davinci is the most capable model, and Ada is the fastest.")
             df = pd.DataFrame(
                 [
                     ['text-davinci-002', 'Most capable GPT-3 model. Can do any task the other models can do, often with less context. In addition to responding to prompts, also supports inserting completions within text.', '4,000 tokens', 'Up to Jun 2021']
                 ],
                 columns=('LATEST MODEL', 'DESCRIPTION', 'MAX REQUEST', 'TRAINING DATA')
             )
-            st.table(df)
+            st.dataframe(df)
