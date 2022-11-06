@@ -17,7 +17,6 @@ class Emojis:
 class Settings:
     API_KEY = None
     MODEL = 'text-davinci-002'
-    # PROMPT = ''
     TEMPERATURE = 0.7
     MAX_TOKENS = 128
     TOP_P = 1
@@ -51,10 +50,12 @@ class MainGUI:
         self.settings.FREQUENCY_PENALTY = st.sidebar.slider('Frequency penalty', 0.0, 2.0, 0.0)
         self.settings.PRESENCE_PENALTY = st.sidebar.slider('Presence penalty', 0.0, 2.0, 0.0)
 
+        st.sidebar.markdown('---')
         st.sidebar.title(f'Perfectly matched parameters')
 
         st.sidebar.code('Temperature: 1.0\nMaximum length: 128\nTop P: 1.0\nFrequency penalty: 0.0\nFrequency penalty: 0.0')
 
+        st.sidebar.markdown('---')
         st.sidebar.title(f'Parameters description')
 
         st.sidebar.header('GPT-3 model')
