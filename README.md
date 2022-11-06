@@ -1,1 +1,1 @@
-# nn-recruitment-project-target
+# Fake News Generator
