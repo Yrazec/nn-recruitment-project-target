@@ -8,15 +8,6 @@ class Emojis:
     HAMMER = '\U0001F528'
     LIGHTNING = '\U000026A1'
     GEAR = '\U00002699'
-    NUMERALS_ONE = '\U00000031'
-    NUMERALS_TWO = '\U00000032'
-    NUMERALS_THREE = '\U00000033'
-    NUMERALS_FOUR = '\U00000034'
-    NUMERALS_FIVE = '\U00000035'
-    NUMERALS_SIX = '\U00000036'
-    NUMERALS_SEVEN = '\U00000037'
-    NUMERALS_EIGHT = '\U00000038'
-    NUMERALS_NINE = '\U00000039'
 
 
 class Settings:
@@ -44,9 +35,9 @@ class MainGUI:
 
     def setup_sidebar(self) -> None:
         st.sidebar.title(f'{self.emojis.GEAR} SETTINGS {self.emojis.GEAR}')
-        self.settings.API_KEY = st.sidebar.text_input(f'{self.emojis.NUMERALS_ONE} OpenAI API Key:', type='password')
+        self.settings.API_KEY = st.sidebar.text_input('OpenAI API Key:', type='password')
         self.settings.MODEL = st.sidebar.selectbox(
-            f'{self.emojis.NUMERALS_TWO} GPT-3 model',
+            'GPT-3 model',
             ('text-davinci-002', 'text-curie-001', 'text-babbage-001', 'text-ada-001')
         )
         # self.settings.PROMPT
