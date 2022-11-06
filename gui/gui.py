@@ -9,6 +9,8 @@ class Emojis:
     LIGHTNING = '\U000026A1'
     GEAR = '\U00002699'
     FEATHER = '\U0001FAB6'
+    SLEEPING = '\U0001F4A4'
+    BOOK = '\U0001F56E'
 
 
 class Settings:
@@ -73,8 +75,8 @@ class MainGUI:
         st.sidebar.write("How much to penalize new tokens based on whether they appear in the text so far. Increases the model's likelihood to talk about new topics.")
 
     def setup_main_page(self) -> None:
-        st.subheader('Bored with long texts, descriptions and so on?')
-        st.subheader('Now you can read less while learning almost as much knowledge!')
+        st.subheader(f'{self.emojis.SLEEPING} Bored with long texts, descriptions and so on? {self.emojis.SLEEPING}')
+        st.subheader(f'{self.emojis.BOOK} Now you can read less while learning almost as much knowledge! {self.emojis.BOOK}')
 
         input_text = st.text_area(label='Enter the text to be summarized:')
 
