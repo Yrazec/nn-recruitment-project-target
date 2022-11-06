@@ -10,7 +10,7 @@ class Emojis:
     GEAR = '\U00002699'
     FEATHER = '\U0001FAB6'
     SLEEPING = '\U0001F4A4'
-    BOOK = '\U0001F56E'
+    BOOK = '\U0001F4D6'
 
 
 class Settings:
