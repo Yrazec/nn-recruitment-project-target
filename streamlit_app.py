@@ -1,4 +1,4 @@
-"""Runner file for Fake News Generator app."""
+"""Runner file for AbstracThor app."""
 
 from gui.gui import Gui
 
