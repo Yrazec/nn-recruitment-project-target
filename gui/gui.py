@@ -111,4 +111,11 @@ class MainGUI:
                 ],
                 columns=('LATEST MODEL', 'DESCRIPTION', 'MAX REQUEST', 'TRAINING DATA')
             )
-            st.dataframe(df)
+            hide_table_row_index = """
+                <style>
+                thead tr th:first-child {display:none}
+                tbody th {display:none}
+                </style>
+                """
+            st.markdown(hide_table_row_index, unsafe_allow_html=True)
+            st.table(df)
