@@ -107,7 +107,10 @@ class MainGUI:
             st.write("OpenAI's GPT-3 models can understand and generate natural language. It offer four main models with different levels of power suitable for different tasks. Davinci is the most capable model, and Ada is the fastest.")
             df = pd.DataFrame(
                 [
-                    ['text-davinci-002', 'Most capable GPT-3 model. Can do any task the other models can do, often with less context. In addition to responding to prompts, also supports inserting completions within text.', '4,000 tokens', 'Up to Jun 2021']
+                    ['text-davinci-002', 'Most capable GPT-3 model. Can do any task the other models can do, often with less context. In addition to responding to prompts, also supports inserting completions within text.', '4,000 tokens', 'Up to Jun 2021'],
+                    ['text-curie-001', 'Very capable, but faster and lower cost than Davinci.', '2,048 tokens', 'Up to Oct 2019'],
+                    ['text-babbage-001', 'Capable of straightforward tasks, very fast, and lower cost.', '2,048 tokens', 'Up to Oct 2019'],
+                    ['text-ada-001', 'Capable of very simple tasks, usually the fastest model in the GPT-3 series, and lowest cost.', '2,048 tokens', 'Up to Oct 2019']
                 ],
                 columns=('LATEST MODEL', 'DESCRIPTION', 'MAX REQUEST', 'TRAINING DATA')
             )
@@ -119,3 +122,5 @@ class MainGUI:
                 """
             st.markdown(hide_table_row_index, unsafe_allow_html=True)
             st.table(df)
+            st.write('While Davinci is generally the most capable, the other models can perform certain tasks extremely well with significant speed or cost advantages. For example, Curie can perform many of the same tasks as Davinci, but faster and for 1/10th the cost.')
+            st.write('We recommend using Davinci while experimenting since it will yield the best results. Once you’ve got things working, we encourage trying the other models to see if you can get the same results with lower latency. You may also be able to improve the other models’ performance by fine-tuning them on a specific task.')
