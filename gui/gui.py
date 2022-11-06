@@ -47,6 +47,26 @@ class MainGUI:
         self.settings.FREQUENCY_PENALTY = st.sidebar.slider('Frequency penalty', 0.0, 2.0, 0.0)
         self.settings.PRESENCE_PENALTY = st.sidebar.slider('Presence penalty', 0.0, 2.0, 0.0)
 
+        st.sidebar.markdown('---')
+
+        st.subheader('GPT-3 model')
+        st.write('The model which will generate the completion. Some models are suitable for natural language tasks, others specialize in code.')
+
+        st.subheader('Temperature')
+        st.write('Controls randomness: Lowering results in less random completions. As the temperature approaches zero, the model will become deterministic and repetitive.')
+
+        st.subheader('Maximum length')
+        st.write('The maximum number of tokens to generate. Requests can use up to 2,048 or 4,000 tokens shared between prompt and completion. The exact limit varies by model. (One token is roughly 4 characters for normal English text)')
+
+        st.subheader('Top P')
+        st.write('Controls diversity via nucleus sampling: 0.5 means half of all likelihood-weighted options are considered.')
+
+        st.subheader('Frequency penalty')
+        st.write("How much to penalize new tokens based on their existing frequency in the text so far. Decreases the model's likelihood to repeat the same line verbatim.")
+
+        st.subheader('Presence penalty')
+        st.write("How much to penalize new tokens based on whether they appear in the text so far. Increases the model's likelihood to talk about new topics.")
+
     def setup_main_page(self) -> None:
         st.subheader(' '.join([
             'Bored with long texts, descriptions and so on? Now you can',
