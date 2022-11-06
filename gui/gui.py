@@ -75,39 +75,32 @@ class MainGUI:
         st.sidebar.write("How much to penalize new tokens based on whether they appear in the text so far. Increases the model's likelihood to talk about new topics.")
 
     def setup_main_page(self) -> None:
-        st.subheader(f'{self.emojis.SLEEPING} Bored with long texts, descriptions and so on? {self.emojis.SLEEPING}')
-        st.subheader(f'{self.emojis.BOOK} Now you can read less while learning almost as much knowledge! {self.emojis.BOOK}')
 
-        input_text = st.text_area(label='Enter the text to be summarized:')
+        main_page_tab, description_tab = st.tabs(["MAIN PAGE", "DESCRIPTION"])
 
-        openai.api_key = self.settings.API_KEY
+        with main_page_tab:
+            st.subheader(f'{self.emojis.SLEEPING} Bored with long texts, descriptions and so on? {self.emojis.SLEEPING}')
+            st.subheader(f'{self.emojis.BOOK} Now you can read less while learning almost as much knowledge! {self.emojis.BOOK}')
 
-        if openai.api_key:
-            st.subheader('Shorter version of your text:')
-            with st.spinner('Forging your abstract... ⚡🔨'):
-                response = openai.Completion.create(
-                    model=self.settings.MODEL,
-                    prompt=f'{input_text}\n\nTl;dr',
-                    temperature=self.settings.TEMPERATURE,
-                    max_tokens=self.settings.MAX_TOKENS,
-                    top_p=self.settings.TOP_P,
-                    frequency_penalty=self.settings.FREQUENCY_PENALTY,
-                    presence_penalty=self.settings.PRESENCE_PENALTY
-                )
-                output = response['choices'][0]['text']
-                output = Parser.validate_string_start(string=output)
-                st.write(output)
+            input_text = st.text_area(label='Enter the text to be summarized:')
 
-        tab1, tab2, tab3 = st.tabs(["Cat", "Dog", "Owl"])
+            openai.api_key = self.settings.API_KEY
 
-        with tab1:
-            st.header("A cat")
-            st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
+            if openai.api_key:
+                st.subheader('Shorter version of your text:')
+                with st.spinner('Forging your abstract... ⚡🔨'):
+                    response = openai.Completion.create(
+                        model=self.settings.MODEL,
+                        prompt=f'{input_text}\n\nTl;dr',
+                        temperature=self.settings.TEMPERATURE,
+                        max_tokens=self.settings.MAX_TOKENS,
+                        top_p=self.settings.TOP_P,
+                        frequency_penalty=self.settings.FREQUENCY_PENALTY,
+                        presence_penalty=self.settings.PRESENCE_PENALTY
+                    )
+                    output = response['choices'][0]['text']
+                    output = Parser.validate_string_start(string=output)
+                    st.write(output)
 
-        with tab2:
-            st.header("A dog")
-            st.image("https://static.streamlit.io/examples/dog.jpg", width=200)
-
-        with tab3:
-            st.header("An owl")
-            st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
+        with description_tab:
+            st.header('GPT-3')
