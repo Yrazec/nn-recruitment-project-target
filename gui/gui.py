@@ -53,7 +53,7 @@ class MainGUI:
         st.sidebar.markdown('---')
         st.sidebar.title(f'Perfectly matched parameters')
 
-        st.sidebar.code('Model: text-davinci-002\nTemperature: 1.0\nMaximum length: 128\nTop P: 1.0\nFrequency penalty: 0.0\nFrequency penalty: 0.0')
+        st.sidebar.code("Model: 'text-davinci-002'\nTemperature: 1.0\nMaximum length: 128\nTop P: 1.0\nFrequency penalty: 0.0\nFrequency penalty: 0.0")
 
         st.sidebar.markdown('---')
         st.sidebar.title(f'Parameters description')
