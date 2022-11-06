@@ -33,7 +33,7 @@ def main():
             model='text-davinci-002',
             prompt=f'{input_text}\n\nTl;dr',
             temperature=0.7,
-            max_tokens=4000,
+            max_tokens=128,
             top_p=1,
             frequency_penalty=0,
             presence_penalty=0
