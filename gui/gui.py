@@ -123,4 +123,4 @@ class MainGUI:
             st.markdown(hide_table_row_index, unsafe_allow_html=True)
             st.table(df)
             st.write('While Davinci is generally the most capable, the other models can perform certain tasks extremely well with significant speed or cost advantages. For example, Curie can perform many of the same tasks as Davinci, but faster and for 1/10th the cost.')
-            st.write('We recommend using Davinci while experimenting since it will yield the best results. Once you’ve got things working, we encourage trying the other models to see if you can get the same results with lower latency. You may also be able to improve the other models’ performance by fine-tuning them on a specific task.')
+            st.write("We recommend using Davinci while experimenting since it will yield the best results. Once we’ve got things working, it's encourage trying the other models to see we you can get the same results with lower latency. We may also be able to improve the other models’ performance by fine-tuning them on a specific task.")
