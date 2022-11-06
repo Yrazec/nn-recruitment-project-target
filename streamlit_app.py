@@ -4,6 +4,12 @@ import openai
 import streamlit as st
 
 
+class Settings:
+    API_KEY = None
+    MODEL = 'text-davinci-002'
+    PROMPT = ''
+
+
 def validate_string_start(string: str) -> str:
     while True:
         if string[0].isalnum():
@@ -18,6 +24,7 @@ def main():
 
     st.title('Abstractor')
 
+    st.sidebar.title('Settings')
     openai.api_key = st.sidebar.text_input('OpenAI API Key:', type='password')
 
     st.subheader(
@@ -29,18 +36,20 @@ def main():
     )
 
     if openai.api_key:
-        response = openai.Completion.create(
-            model='text-davinci-002',
-            prompt=f'{input_text}\n\nTl;dr',
-            temperature=0.7,
-            max_tokens=128,
-            top_p=1,
-            frequency_penalty=0,
-            presence_penalty=0
-        )
-        output = response['choices'][0]['text']
-        output = validate_string_start(string=output)
-        st.write(output)
+        with st.spinner('Smithing your abstract...'):
+            st.subheader('Shorter version of your text:')
+            response = openai.Completion.create(
+                model='text-davinci-002',
+                prompt=f'{input_text}\n\nTl;dr',
+                temperature=0.7,
+                max_tokens=128,
+                top_p=1,
+                frequency_penalty=0,
+                presence_penalty=0
+            )
+            output = response['choices'][0]['text']
+            output = validate_string_start(string=output)
+            st.write(output)
 
 
 if __name__ == '__main__':
