@@ -45,16 +45,16 @@ class MainGUI:
     def setup_sidebar(self) -> None:
         st.sidebar.title(f'{self.emojis.GEAR} SETTINGS {self.emojis.GEAR}')
         self.settings.API_KEY = st.sidebar.text_input(f'{self.emojis.NUMERALS_ONE} OpenAI API Key:', type='password')
-        self.settings.MODEL = st.selectbox(
+        self.settings.MODEL = st.sidebar.selectbox(
             f'{self.emojis.NUMERALS_TWO} GPT-3 model',
             ('text-davinci-002', 'text-curie-001', 'text-babbage-001', 'text-ada-001')
         )
         # self.settings.PROMPT
-        self.settings.TEMPERATURE = st.slider('Temperature', 0.0, 1.0, 0.7)
-        self.settings.MAX_TOKENS = st.slider('Maximum length', 1, 3857, 128)
-        self.settings.TOP_P = st.slider('Top P', 0.0, 1.0, 1.0)
-        self.settings.FREQUENCY_PENALTY = st.slider('Top P', 0.0, 2.0, 0.0)
-        self.settings.PRESENCE_PENALTY = st.slider('Top P', 0.0, 2.0, 0.0)
+        self.settings.TEMPERATURE = st.sidebar.slider('Temperature', 0.0, 1.0, 0.7)
+        self.settings.MAX_TOKENS = st.sidebar.slider('Maximum length', 1, 3857, 128)
+        self.settings.TOP_P = st.sidebar.slider('Top P', 0.0, 1.0, 1.0)
+        self.settings.FREQUENCY_PENALTY = st.sidebar.slider('Top P', 0.0, 2.0, 0.0)
+        self.settings.PRESENCE_PENALTY = st.sidebar.slider('Top P', 0.0, 2.0, 0.0)
 
     def setup_main_page(self) -> None:
         st.subheader(' '.join([
