@@ -96,8 +96,9 @@ class Gui:
         abstractor.assign_api_key()
         if abstractor.check_api_key():
             st.header('Shorter version of your text:')
-            output = abstractor.process(input_text=input_text)
-            st.write(output)
+            with st.spinner(f'Forging your abstract... {Emojis.HAMMER}{Emojis.LIGHTNING}'):
+                output = abstractor.process(input_text=input_text)
+                st.write(output)
 
     def setup_description_tab(self) -> None:
         st.write(
