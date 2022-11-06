@@ -1,4 +1,5 @@
 import openai
+import pandas as pd
 import streamlit as st
 
 from libs.parser import Parser
@@ -103,4 +104,10 @@ class MainGUI:
                     st.write(output)
 
         with description_tab:
-            st.header('GPT-3')
+            df = pd.DataFrame(
+                [
+                    ['text-davinci-002', 'Most capable GPT-3 model. Can do any task the other models can do, often with less context. In addition to responding to prompts, also supports inserting completions within text.', '4,000 tokens', 'Up to Jun 2021']
+                ],
+                columns=('LATEST MODEL', 'DESCRIPTION', 'MAX REQUEST', 'TRAINING DATA')
+            )
+            st.table(df)
