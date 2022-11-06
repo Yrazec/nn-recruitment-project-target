@@ -48,6 +48,8 @@ class MainGUI:
         self.settings.PRESENCE_PENALTY = st.sidebar.slider('Presence penalty', 0.0, 2.0, 0.0)
 
         st.sidebar.markdown('---')
+        st.sidebar.subheader('Parameters description')
+        st.sidebar.markdown('---')
 
         st.sidebar.subheader('GPT-3 model')
         st.sidebar.write('The model which will generate the completion. Some models are suitable for natural language tasks, others specialize in code.')
@@ -68,14 +70,10 @@ class MainGUI:
         st.sidebar.write("How much to penalize new tokens based on whether they appear in the text so far. Increases the model's likelihood to talk about new topics.")
 
     def setup_main_page(self) -> None:
-        st.subheader(' '.join([
-            'Bored with long texts, descriptions and so on? Now you can',
-            'read less while learning almost as much knowledge!'
-        ]))
+        st.subheader('Bored with long texts, descriptions and so on?')
+        st.subheader('Now you can read less while learning almost as much knowledge!')
 
-        input_text = st.text_area(
-            label='Enter the text to be summarized:'
-        )
+        input_text = st.text_area(label='Enter the text to be summarized:')
 
         openai.api_key = self.settings.API_KEY
 
