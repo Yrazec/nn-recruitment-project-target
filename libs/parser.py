@@ -1,4 +1,5 @@
 class Parser:
+
     @staticmethod
     def validate_string_start(string: str) -> str:
         while True:
