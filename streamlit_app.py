@@ -36,8 +36,8 @@ def main():
     )
 
     if openai.api_key:
+        st.subheader('Shorter version of your text:')
         with st.spinner('Smithing your abstract...'):
-            st.subheader('Shorter version of your text:')
             response = openai.Completion.create(
                 model='text-davinci-002',
                 prompt=f'{input_text}\n\nTl;dr',
