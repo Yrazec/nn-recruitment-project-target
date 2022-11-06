@@ -4,6 +4,15 @@ import openai
 import streamlit as st
 
 
+def validate_string_start(string: str) -> str:
+    while True:
+        if string[0].isalnum():
+            break
+        else:
+            string = string[1:]
+    return string
+
+
 def main():
     """Standard main function."""
 
@@ -24,12 +33,14 @@ def main():
             model='text-davinci-002',
             prompt=f'{input_text}\n\nTl;dr',
             temperature=0.7,
-            max_tokens=60,
+            max_tokens=4000,
             top_p=1,
             frequency_penalty=0,
             presence_penalty=0
         )
-        st.write(response['choices'][0]['text'])
+        output = response['choices'][0]['text']
+        output = validate_string_start(string=output)
+        st.write(output)
 
 
 if __name__ == '__main__':
