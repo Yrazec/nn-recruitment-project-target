@@ -1,11 +1,11 @@
 """Runner file for Fake News Generator app."""
 
-from libs.abstracthor import Abstracthor
+from gui.gui import Gui
 
 
 def main():
     """Standard main function."""
-    Abstracthor()
+    Gui()
 
 
 if __name__ == '__main__':
