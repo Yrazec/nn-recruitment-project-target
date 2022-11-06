@@ -53,8 +53,8 @@ class MainGUI:
         self.settings.TEMPERATURE = st.sidebar.slider('Temperature', 0.0, 1.0, 0.7)
         self.settings.MAX_TOKENS = st.sidebar.slider('Maximum length', 1, 3857, 128)
         self.settings.TOP_P = st.sidebar.slider('Top P', 0.0, 1.0, 1.0)
-        self.settings.FREQUENCY_PENALTY = st.sidebar.slider('Top P', 0.0, 2.0, 0.0)
-        self.settings.PRESENCE_PENALTY = st.sidebar.slider('Top P', 0.0, 2.0, 0.0)
+        self.settings.FREQUENCY_PENALTY = st.sidebar.slider('Frequency penalty', 0.0, 2.0, 0.0)
+        self.settings.PRESENCE_PENALTY = st.sidebar.slider('Presence penalty', 0.0, 2.0, 0.0)
 
     def setup_main_page(self) -> None:
         st.subheader(' '.join([
