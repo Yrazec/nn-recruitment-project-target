@@ -48,7 +48,11 @@ class MainGUI:
         self.settings.FREQUENCY_PENALTY = st.sidebar.slider('Frequency penalty', 0.0, 2.0, 0.0)
         self.settings.PRESENCE_PENALTY = st.sidebar.slider('Presence penalty', 0.0, 2.0, 0.0)
 
-        st.sidebar.title(f'{self.emojis.FEATHER} Parameters description {self.emojis.FEATHER}')
+        st.sidebar.title(f'Perfectly matched parameters')
+
+        st.sidebar.code('Temperature: 1.0\nMaximum length: 128\nTop P: 1.0\nFrequency penalty: 0.0\nFrequency penalty: 0.0')
+
+        st.sidebar.title(f'Parameters description')
 
         st.sidebar.subheader('GPT-3 model')
         st.sidebar.write('The model which will generate the completion. Some models are suitable for natural language tasks, others specialize in code.')
