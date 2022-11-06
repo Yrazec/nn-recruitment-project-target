@@ -1,3 +1,5 @@
+## [Streamlit ∙ nn-recruitment-project-target ∙ main ∙ streamlit_app.py](https://yrazec-nn-recruitment-project-target-streamlit-app-bbpghg.streamlit.app/)
+
 # A public recruitment target project
 A project that will serve as a recruitment application. It's target application created with [Streamlit](https://streamlit.io/) and [OpenAI](https://openai.com/) services.
 
